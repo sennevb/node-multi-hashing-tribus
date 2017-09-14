@@ -641,6 +641,7 @@ void init(Handle<Object> exports) {
     exports->Set(NanNew<String>("quark"), NanNew<FunctionTemplate>(quark)->GetFunction());
     exports->Set(NanNew<String>("x11"), NanNew<FunctionTemplate>(x11)->GetFunction());
     exports->Set(NanNew<String>("scrypt"), NanNew<FunctionTemplate>(scrypt)->GetFunction());
+    exports->Set(NanNew<String>("neoscrypt"), NanNew<FunctionTemplate>(neoscrypt)->GetFunction());
     exports->Set(NanNew<String>("scryptn"), NanNew<FunctionTemplate>(scryptn)->GetFunction());
     exports->Set(NanNew<String>("scryptjane"), NanNew<FunctionTemplate>(scryptjane)->GetFunction());
     exports->Set(NanNew<String>("keccak"), NanNew<FunctionTemplate>(keccak)->GetFunction());
