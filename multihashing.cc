@@ -10,6 +10,7 @@ extern "C" {
     #include "quark.h"
     #include "scryptjane.h"
     #include "scryptn.h"
+    #include "neoscrypt.h"
     #include "skein.h"
     #include "x11.h"
     #include "groestl.h"
@@ -110,7 +111,30 @@ NAN_METHOD(scrypt) {
     );
 }
 
+NAN_METHOD(neoscrypt) {
+    NanScope();
 
+    if (args.Length() < 2)
+        return except("You must provide two arguments.");
+    
+    Local<Object> target = args[0]->ToObject();
+    
+    if(!Buffer::HasInstance(target))
+        return except("Argument should be a buffer object.");
+    
+    char * input = Buffer::Data(target);
+    char output[32];
+    
+    uint32_t input_len = Buffer::Length(target);
+    
+    neoscrypt(input, output, 0);
+    
+    NanReturnValue(
+       NanNewBufferHandle(output, 32)
+    );
+    
+}
+    
 
 NAN_METHOD(scryptn) {
    NanScope();
