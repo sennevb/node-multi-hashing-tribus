@@ -26,6 +26,7 @@
 	        "Lyra2RE.c",
 	        "zr5.c",
                 "fresh.c",
+		"neoscrypt.c", 
 	        "Lyra2.c",
 	        "Sponge.c",
                 "Lyra2RE.c",
