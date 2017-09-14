@@ -115,12 +115,12 @@ NAN_METHOD(neoscrypt) {
     NanScope();
 
     if (args.Length() < 2)
-        return except("You must provide two arguments.");
+        return THROW_ERROR_EXCEPTION("You must provide two arguments.");
     
     Local<Object> target = args[0]->ToObject();
     
-    if(!Buffer::HasInstance(target))
-        return except("Argument should be a buffer object.");
+if(!Buffer::HasInstance(target))
+       return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
     
     char * input = Buffer::Data(target);
     char output[32];
